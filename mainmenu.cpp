@@ -1,9 +1,10 @@
 #include "mainmenu.h"
 #include "./ui_mainmenu.h"
-#include "approvenew.h"
+//#include "approvenew.h"
 #include "mapexisting.h"
 #include "registernew.h"
 #include "listexisting.h"
+#include "adminlogin.h"
 
 MainMenu::MainMenu(QWidget *parent)
     : QMainWindow(parent)
@@ -33,12 +34,12 @@ void MainMenu::on_listExisting_clicked()
 }
 
 
-void MainMenu::on_approveNew_clicked()
-{
-    approveNew approveNew;
-    approveNew.setModal(true);
-    approveNew.exec();
-}
+//void MainMenu::on_approveNew_clicked()
+//{
+//    approveNew approveNew;
+//    approveNew.setModal(true);
+//    approveNew.exec();
+//}
 
 
 void MainMenu::on_mapExisting_clicked()
@@ -46,5 +47,12 @@ void MainMenu::on_mapExisting_clicked()
     mapExisting mapExisting;
     mapExisting.setModal(true);
     mapExisting.exec();
+}
+
+void MainMenu::on_adminLogin_clicked()
+{
+    adminlogin AdminLogin;
+    AdminLogin.setModal(true);
+    AdminLogin.exec();
 }
 

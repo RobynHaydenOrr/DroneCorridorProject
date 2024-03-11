@@ -26,6 +26,8 @@ private slots:
 
     void on_mapExisting_clicked();
 
+    void on_adminLogin_clicked();
+
 private:
     Ui::MainMenu *ui;
 };

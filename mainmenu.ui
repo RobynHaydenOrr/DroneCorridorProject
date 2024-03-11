@@ -30,7 +30,7 @@
      <string>Register New Corridor</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="approveNew">
+   <widget class="QPushButton" name="adminLogin">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -80,19 +80,6 @@
     </property>
     <property name="text">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt;&quot;&gt;Drone Corridor Manager&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>270</y>
-      <width>80</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
     </property>
    </widget>
   </widget>
