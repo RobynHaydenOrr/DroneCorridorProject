@@ -2,6 +2,10 @@
 #define REGISTERNEW_H
 
 #include <QDialog>
+#include <QtSql>
+#include <QtDebug>
+#include <QFileInfo>
+
 
 namespace Ui {
 class registerNew;

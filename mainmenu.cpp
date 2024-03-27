@@ -10,6 +10,9 @@ MainMenu::MainMenu(QWidget *parent)
     , ui(new Ui::MainMenu)
 {
     ui->setupUi(this);
+
+    QSqlDatabase corridorData=QSqlDatabase::addDatabase("QSQLITE");
+    corridorData.setDatabaseName("c:/Users/robyn/Desktop/College Project/QtDroneCorridorProject/DroneCorridorProject/db/corridorDB.db");
 }
 
 MainMenu::~MainMenu()

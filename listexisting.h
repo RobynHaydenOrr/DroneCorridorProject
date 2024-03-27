@@ -2,6 +2,9 @@
 #define LISTEXISTING_H
 
 #include <QDialog>
+#include <QtSql>
+#include <QtDebug>
+#include <QFileInfo>
 
 namespace Ui {
 class listExisting;
@@ -14,6 +17,11 @@ class listExisting : public QDialog
 public:
     explicit listExisting(QWidget *parent = nullptr);
     ~listExisting();
+
+private slots:
+    void on_pushButton_clicked();
+
+    void on_refreshTable_clicked();
 
 private:
     Ui::listExisting *ui;

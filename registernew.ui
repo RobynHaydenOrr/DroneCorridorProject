@@ -107,6 +107,19 @@
      <string>Submit</string>
     </property>
    </widget>
+   <widget class="QLabel" name="dbCheck">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>220</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>test</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

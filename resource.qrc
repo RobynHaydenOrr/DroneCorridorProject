@@ -2,4 +2,7 @@
     <qresource prefix="/img">
         <file>img/ireland.png</file>
     </qresource>
+    <qresource prefix="/db">
+        <file>db/corridorDB.db</file>
+    </qresource>
 </RCC>

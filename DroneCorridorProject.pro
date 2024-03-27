@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     adminlogin.cpp \
+    approvenew.cpp \
     listexisting.cpp \
     main.cpp \
     mainmenu.cpp \
@@ -18,6 +19,7 @@ SOURCES += \
 
 HEADERS += \
     adminlogin.h \
+    approvenew.h \
     listexisting.h \
     mainmenu.h \
     mapexisting.h \
@@ -25,6 +27,7 @@ HEADERS += \
 
 FORMS += \
     adminlogin.ui \
+    approvenew.ui \
     listexisting.ui \
     mainmenu.ui \
     mapexisting.ui \
