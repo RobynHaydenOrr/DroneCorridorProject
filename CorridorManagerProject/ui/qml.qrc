@@ -1,0 +1,29 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>assets/marker.png</file>
+        <file>FlightPlannerScreen/FlightPlannerScreen.qml</file>
+        <file>FlightPlannerScreen/MapPanel.qml</file>
+        <file>FlightPlannerScreen/WayPointListPanel.qml</file>
+        <file>FlightPlannerScreen/DronesComboBox.qml</file>
+        <file>FlightPlannerScreen/WayPointListViewDelegate.qml</file>
+        <file>Components/StyledButton.qml</file>
+        <file>assets/selectedMarker.png</file>
+        <file>FlightPlannerScreen/ChangeSpeedDialog.qml</file>
+        <file>FlightPlannerScreen/ConfirmBackDialog.qml</file>
+        <file>MainMenuScreen/MainMenuScreen.qml</file>
+        <file>MainMenuScreen/MenuPanel.qml</file>
+        <file>MainMenuScreen/MenuButton.qml</file>
+        <file>FlightPlannerScreen/RouteNameDialog.qml</file>
+        <file>RoutesScreen/RoutesListPanel.qml</file>
+        <file>RoutesScreen/RoutesMapPanel.qml</file>
+        <file>RoutesScreen/RoutesScreen.qml</file>
+        <file>RoutesScreen/RoutesListViewDelegate.qml</file>
+        <file>assets/no.png</file>
+        <file>assets/yes.png</file>
+        <file>ApproveCorridors/ApproveScreen.qml</file>
+        <file>ApproveCorridors/ApproveListPanel.qml</file>
+        <file>ApproveCorridors/ApproveMapPanel.qml</file>
+        <file>ApproveCorridors/ApproveListViewDelegate.qml</file>
+    </qresource>
+</RCC>
