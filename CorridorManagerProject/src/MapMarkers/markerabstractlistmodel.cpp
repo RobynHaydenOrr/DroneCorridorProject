@@ -132,9 +132,7 @@ QVariantList MarkerAbstractListModel::getMarkers() const {
         QVariantMap map;
         map["latitude"] = marker.m_latitude;
         map["longitude"] = marker.m_longitude;
-        map["speed"] = marker.m_speed;
         map["totaldistance"] = marker.m_totalDistanceTraveled;
-        map["totaltime"] = marker.m_totalTimeTraveled;
         coords.append(map);
     }
     return coords;

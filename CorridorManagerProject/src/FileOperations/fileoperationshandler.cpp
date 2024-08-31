@@ -44,6 +44,7 @@ bool FileOperationsHandler::saveWayPoints(const QString &name, const  DronesAbst
     int wayPointCount = 0;
     double totalDistance = 0;
     double totalTime = 0;
+    bool approved = "Yes";
 
     QJsonArray waypointsArray;
 
@@ -61,6 +62,7 @@ bool FileOperationsHandler::saveWayPoints(const QString &name, const  DronesAbst
 
     routeParams["totalWayPoints"] = wayPointCount;
     routeParams["totalDistance"] = totalDistance;
+    routeParams["approved"] = approved;
 
     QJsonObject mainObj;
     mainObj["quickdata"] = routeParams;
@@ -140,13 +142,15 @@ void FileOperationsHandler::readSavedRoutes()
             routeJsonObject["drone"].toObject()["name"].toString(),
             routeJsonObject["quickdata"].toObject()["totalDistance"].toDouble(),
             routeJsonObject["quickdata"].toObject()["totalTime"].toDouble(),
-            routeJsonObject["waypoints"].toArray().count()
+            routeJsonObject["waypoints"].toArray().count(),
+            routeJsonObject["quickdata"].toObject()["approved"].toBool()
             );
 
         qDebug() << routeName<< routeJsonObject["drone"].toObject()["name"].toString() <<
             routeJsonObject["quickdata"].toObject()["totalDistance"].toDouble() <<
             routeJsonObject["quickdata"].toObject()["totalTime"].toDouble() <<
             routeJsonObject["waypoints"].toArray().count();
+        routeJsonObject["quickdata"].toObject()["approved"].toBool();
 
         savedRoutes.append( routeData );
     }
@@ -252,4 +256,48 @@ void FileOperationsHandler::loadRoute(const QString &fileName)
 SavedRoutesListModel *FileOperationsHandler::savedRoutesModel() const
 {
     return m_savedRoutesListModel;
+}
+
+void FileOperationsHandler::updateRouteApproval(const QString &routeName, bool approved) {
+    QString filePath = m_dataPath + QDir::separator() + routeName + ".json";
+
+    // Check if the file exists
+    QFile routeFile(filePath);
+    if (!routeFile.exists()) {
+        qWarning() << "Route file does not exist:" << filePath;
+        return;
+    }
+
+    if (!routeFile.open(QIODevice::ReadWrite)) {
+        qWarning() << "Failed to open file for updating approval:" << filePath;
+        return;
+    }
+
+    // Read the existing JSON data
+    QByteArray fileData = routeFile.readAll();
+    QJsonDocument doc = QJsonDocument::fromJson(fileData);
+    if (doc.isNull() || !doc.isObject()) {
+        qWarning() << "Failed to parse JSON for file:" << filePath;
+        routeFile.close();
+        return;
+    }
+
+    // Get the root JSON object
+    QJsonObject routeJsonObject = doc.object();
+
+    // Update the "approved" field to true
+    QJsonObject quickDataObject = routeJsonObject["quickdata"].toObject();
+    quickDataObject["approved"] = true;  // Set to true
+
+    // Reinsert the updated object back into the root object
+    routeJsonObject["quickdata"] = quickDataObject;
+
+    // Write back the updated JSON to the file
+    doc.setObject(routeJsonObject);
+    routeFile.seek(0); // Go back to the beginning of the file
+    routeFile.write(doc.toJson());
+    routeFile.resize(routeFile.pos()); // Truncate any extra data from the previous content
+    routeFile.close();
+
+    qDebug() << "Updated approval status to true for route:" << routeName;
 }

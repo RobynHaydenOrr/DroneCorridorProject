@@ -26,6 +26,8 @@ QVariant SavedRoutesListModel::data(const QModelIndex &index, int role) const
         return route.m_routeDistance;
     case WayPointCount:
         return route.m_wayPointCount;
+    case Approved:
+        return route.m_approved;
     default:
         return QVariant();
     }
@@ -44,5 +46,6 @@ QHash<int, QByteArray> SavedRoutesListModel::roleNames() const
     roles[RouteName] = "name";
     roles[RouteDistance] = "distance";
     roles[WayPointCount] = "waypointcount";
+    roles[Approved] = "approved";
     return roles;
 }

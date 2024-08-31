@@ -34,7 +34,7 @@ Rectangle {
         font.pixelSize: 40
         color: "white"
 
-        text: ("Enter Route Name")
+        text: ("Enter Corridor Name")
     }
 
     Rectangle {

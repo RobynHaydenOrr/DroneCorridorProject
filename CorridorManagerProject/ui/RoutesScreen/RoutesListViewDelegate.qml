@@ -22,6 +22,18 @@ Rectangle {
     }
 
     Text {
+        id: approved
+        color: "white"
+        font.pixelSize: 16
+        anchors {
+            right: parent.right
+            top: parent.top
+            margins: 10
+        }
+        text: ("Approved: ") + model.approved
+    }
+
+    Text {
         id: distanceLabel
         color: "white"
         font.pixelSize: 16
@@ -30,7 +42,7 @@ Rectangle {
             bottom: parent.bottom
             margins: 10
         }
-        text: model.distance.toFixed(1) + (" miles")
+        text: model.distance.toFixed(1) + (" km")
     }
 
     Text {

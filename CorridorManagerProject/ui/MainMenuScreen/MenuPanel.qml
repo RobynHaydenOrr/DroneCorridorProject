@@ -62,7 +62,7 @@ Rectangle {
         MenuButton {
             id: dronesButton
             //imageSource: "qrc:/assets/dronesIcon.png"
-            buttonText: "Approve New Corridor"
+            buttonText: "Approve/Delete Corridors"
             Layout.fillWidth: true
             Layout.preferredHeight: parent.height / 4 - buttonLayout.spacing
 

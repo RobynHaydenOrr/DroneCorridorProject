@@ -9,7 +9,6 @@
         <file>FlightPlannerScreen/WayPointListViewDelegate.qml</file>
         <file>Components/StyledButton.qml</file>
         <file>assets/selectedMarker.png</file>
-        <file>FlightPlannerScreen/ChangeSpeedDialog.qml</file>
         <file>FlightPlannerScreen/ConfirmBackDialog.qml</file>
         <file>MainMenuScreen/MainMenuScreen.qml</file>
         <file>MainMenuScreen/MenuPanel.qml</file>

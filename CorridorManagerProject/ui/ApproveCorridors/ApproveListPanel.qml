@@ -16,7 +16,7 @@ Rectangle {
 
         font.pixelSize: 40
         color: "white"
-        text: ("Corridors To Approve")
+        text: ("Corridors To Manage")
     }
 
     Text {

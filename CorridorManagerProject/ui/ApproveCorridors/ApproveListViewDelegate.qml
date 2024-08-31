@@ -30,7 +30,7 @@ Rectangle {
             bottom: parent.bottom
             margins: 10
         }
-        text: model.distance.toFixed(1) + (" miles")
+        text: model.distance.toFixed(1) + (" km")
     }
 
     Text {
@@ -43,6 +43,18 @@ Rectangle {
             verticalCenter: parent.verticalCenter
         }
         text: model.waypointcount + (" Waypoints")
+    }
+
+    Text {
+        id: approveLabel
+        color: "white"
+        font.pixelSize: 16
+        anchors {
+            right: parent.right
+            rightMargin: 10
+            verticalCenter: parent.verticalCenter
+        }
+        text: ("Approved:") + model.approved
     }
 
     MouseArea {
@@ -83,5 +95,34 @@ Rectangle {
         }
         fillMode: Image.PreserveAspectFit
         source: (deleteMouseArea.isPressed ? "qrc:/assets/no.png" : "qrc:/assets/no.png")
+    }
+
+    Image {
+        id: approveButton
+
+        visible: approveListViewDelegate.currentlySelected
+
+        width: parent.height * 0.2
+        height: width
+
+        anchors {
+            right: parent.right
+            bottom: parent.bottom
+            margins: 5
+        }
+
+        MouseArea {
+            id: approveMouseArea
+            property bool isPressed: false
+            anchors.fill: parent
+            onClicked: {
+                flightPathManager.reset()
+                fileHandler.updateRouteApproval(model.name, true)
+            }
+            onPressed: approveMouseArea.isPressed = true
+            onReleased: approveMouseArea.isPressed = false
+        }
+        fillMode: Image.PreserveAspectFit
+        source: (approveMouseArea.isPressed ? "qrc:/assets/yes.png" : "qrc:/assets/yes.png")
     }
 }

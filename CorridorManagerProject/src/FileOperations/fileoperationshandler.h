@@ -63,6 +63,8 @@ public:
      */
     SavedRoutesListModel *savedRoutesModel() const;
 
+     Q_INVOKABLE void updateRouteApproval(const QString &routeName, bool approved);
+
 public slots:
     /**
      * @brief Slot to handle the saving of a drone to persistent storage.
@@ -82,8 +84,11 @@ public slots:
      * @param routeName Name of route to be removed.
      */
     void removeSavedRoute( const QString & routeName );
+
 signals:
     void newWayPointsLoaded( QList< MarkerAbstractListModel::MarkerParams > wayPoints );
+
+    void approvalUpdated(const QString &routeName);
 
 private:
     /**

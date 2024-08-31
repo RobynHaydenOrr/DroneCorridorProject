@@ -94,7 +94,7 @@ Rectangle {
         color: "white"
         font.pixelSize: 16
 
-        text: ("Distance: ") + model.totaldistance.toFixed(1) + "mi"
+        text: ("Distance: ") + model.totaldistance.toFixed(1) + "km"
     }
 
     Text {

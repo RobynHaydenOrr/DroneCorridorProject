@@ -84,12 +84,12 @@ double FlightPathManager::calculateHaversineDistance(const double latitudePoint1
 {
     double LatP1InRadians, LongP1InRadians, LatP2InRadians, LongP2InRadians;
 
-    const double EarthRadiusInMiles = 3958.756;
+    const double EarthRadiusInKilometers = 6371.0;
 
-    LatP1InRadians = qDegreesToRadians( latitudePoint1 );
-    LongP1InRadians = qDegreesToRadians( longitudePoint1 );
-    LatP2InRadians = qDegreesToRadians( latitudePoint2 );
-    LongP2InRadians = qDegreesToRadians( longitudePoint2 );
+    LatP1InRadians = qDegreesToRadians(latitudePoint1);
+    LongP1InRadians = qDegreesToRadians(longitudePoint1);
+    LatP2InRadians = qDegreesToRadians(latitudePoint2);
+    LongP2InRadians = qDegreesToRadians(longitudePoint2);
 
     double dLat = LatP2InRadians - LatP1InRadians;
     double dLon = LongP2InRadians - LongP1InRadians;
@@ -98,11 +98,10 @@ double FlightPathManager::calculateHaversineDistance(const double latitudePoint1
                qCos(LatP1InRadians) * qCos(LatP2InRadians) *
                    qSin(dLon / 2) * qSin(dLon / 2);
     double c = 2 * qAtan2(qSqrt(a), qSqrt(1 - a));
-    double distance = EarthRadiusInMiles * c;
+    double distance = EarthRadiusInKilometers * c;
 
     return distance;
 }
-
 void FlightPathManager::reCalulateDistanceAndTime()
 {
 

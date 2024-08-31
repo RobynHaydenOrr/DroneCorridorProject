@@ -10,6 +10,7 @@ class SavedRoutesListModel : public QAbstractListModel
     Q_PROPERTY(int routeNameRole READ routeNameRole CONSTANT)
     Q_PROPERTY(int totalDistanceRole READ totalDistanceRole CONSTANT)
     Q_PROPERTY(int wayPointCountRole READ wayPointCountRole CONSTANT)
+    Q_PROPERTY(bool approved READ approved CONSTANT)
 
 public:
     /**
@@ -18,12 +19,14 @@ public:
     enum RouteRoles {
         RouteName = Qt::UserRole + 1,
         RouteDistance,
-        WayPointCount
+        WayPointCount,
+        Approved
     };
 
     static int routeNameRole() { return RouteName; }
     static int totalDistanceRole() { return RouteDistance; }
     static int wayPointCountRole() { return WayPointCount; }
+    static bool approved() { return Approved; }
 
     /**
      * @brief Struct to hold Route Quick Data.
@@ -32,6 +35,7 @@ public:
         QString m_routeName;
         double m_routeDistance;
         int m_wayPointCount;
+        bool m_approved;
 
         /**
          * @brief Constructor for RouteQuickData.
@@ -41,12 +45,13 @@ public:
          * @param routeTime Total travel time for route.
          */
         RouteQuickData( const QString & routeName, const QString & droneName,
-                        const double routeDistance, const double routeTime,
-                        const int wayPointCount )
+                       const double routeDistance, const double routeTime,
+                       const int wayPointCount, const bool approved )
         {
             m_routeName = routeName;
             m_routeDistance = routeDistance;
             m_wayPointCount = wayPointCount;
+            m_approved = approved;
         }
 
     };
